@@ -45,7 +45,7 @@
     <div class="flex" style="margin-top: 50px;">
       <div class="time-container"  style="justify-content:space-between;">
         <button class="customButton" style="margin-left:18px ;" (click)="shufflePieces()">Shuffle</button>
-        <div *ngIf="!inspectionTime" style="display: flex;">
+        <div *ngIf="!inspectionTime && !showingTimeAfterCompleted" style="display: flex;">
           🕐 {{timerSecond}}:{{timerMilliSecond}}
         </div>
         <button class="customButton" style="margin-right: 18px;">Leaderboard</button>
@@ -55,6 +55,9 @@
     <div class="flex" style="margin-top:50px">
       <div *ngIf="inspectionTime"class="time-container inspect">
         Time Starts in : {{inspectionTimer}} seconds
+      </div>
+      <div *ngIf="showingTimeAfterCompleted"class="time-container inspect">
+        Compoleted in :{{completedTimeSeconds}}:{{completedTimeMillisecond}} seconds
       </div>
     </div>
     

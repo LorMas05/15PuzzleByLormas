@@ -11,9 +11,13 @@ export class AppComponent implements OnInit {
   PuzzlePiecesArray:number[]=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
   timerSecond:number=0
   timerMilliSecond:number=0
+  completedTimeSeconds:number=0
+  completedTimeMillisecond:number=0
   transparentPosition:number=15;
   inspectionTime:boolean=true;
   inspectionTimer:number=3;
+  /*determins if the user has ended the puzzle and is currently watching the time used to complet it*/
+  showingTimeAfterCompleted:boolean=false
   /*when this variable is true it means that the user hasnt waited for the inspection time to finish and clicked a button before the timer*/ 
   hardResetted:boolean=false
   ngOnInit(): void {
@@ -22,6 +26,7 @@ export class AppComponent implements OnInit {
   }
   shufflePieces(){
     this.hardResetted=false
+    this.showingTimeAfterCompleted=false
     this.timerSecond=0
     this.timerMilliSecond=0
         /////  start to shuffle the order
@@ -34,26 +39,29 @@ export class AppComponent implements OnInit {
 
   }
   move(PiecePositon:number){
-    ////case n 1 if it has to move right
-    if(this.isInSameRow(PiecePositon,this.transparentPosition) && this.transparentPosition>PiecePositon){
-      this.moveRight(PiecePositon)
+    ///if the puzzle is completed you cannot move the pieces
+    if(!this.showingTimeAfterCompleted){
+      ////case n 1 if it has to move right
+      if(this.isInSameRow(PiecePositon,this.transparentPosition) && this.transparentPosition>PiecePositon){
+        this.moveRight(PiecePositon)
 
-    }
-    ////case n 2 if it has to move left
-    if(this.isInSameRow(PiecePositon,this.transparentPosition) && this.transparentPosition<PiecePositon){
-      this.moveLeft(PiecePositon)
+      }
+      ////case n 2 if it has to move left
+      if(this.isInSameRow(PiecePositon,this.transparentPosition) && this.transparentPosition<PiecePositon){
+        this.moveLeft(PiecePositon)
 
-    }
-    ////case n 3 if it has to move up
-    if(this.isInSameColumn(PiecePositon,this.transparentPosition) && this.transparentPosition<PiecePositon){
-      this.moveUp(PiecePositon)
+      }
+      ////case n 3 if it has to move up
+      if(this.isInSameColumn(PiecePositon,this.transparentPosition) && this.transparentPosition<PiecePositon){
+        this.moveUp(PiecePositon)
 
-    }
-    ////case n 3 if it has to move down
-    if(this.isInSameColumn(PiecePositon,this.transparentPosition) && this.transparentPosition>PiecePositon){
-      this.moveDown(PiecePositon)
+      }
+      ////case n 3 if it has to move down
+      if(this.isInSameColumn(PiecePositon,this.transparentPosition) && this.transparentPosition>PiecePositon){
+        this.moveDown(PiecePositon)
 
-    }
+      }
+  }
 
   }
   //// call this if you want to see if two pieces are in the same row (0 based positon)
@@ -118,6 +126,8 @@ export class AppComponent implements OnInit {
   }
   //call this functiono to end the inspection time
   endTimer(){
+    ///if the startTimerClock method has never been called i need to call it for the first time
+    if(this.timerSecond==0 && this.timerMilliSecond==0){this.startTimerClock()}
     if(this.inspectionTime){
       this.hardResetted=true
       this.timerMilliSecond=0
@@ -127,6 +137,20 @@ export class AppComponent implements OnInit {
 
       
     }
+    ////this function is called every time a button is clicked so in here i can check if the puzzle has been completed and save the score
+    let correctArray=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    this.PuzzlePiecesArray.toString()==correctArray.toString()?this.PuzzleCompleted():"do nothing"
+  }
+  ///call this function when the puzzle is completed to stop the timer and give out the score
+  PuzzleCompleted(){
+    //making html element of total time appear//
+    if(!this.showingTimeAfterCompleted){
+      this.showingTimeAfterCompleted=true
+      this.completedTimeSeconds=this.timerSecond
+      this.completedTimeMillisecond=this.timerMilliSecond
+    }
+    
+
   }
   ///call this function to start inspection timer
   StartInspectionTimer(){
