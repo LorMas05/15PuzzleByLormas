@@ -80,7 +80,13 @@
     color: white;
     height: 79px;
     border-radius: 20px;
-    border:1px solid white
+    border:1px solid white;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    
 }
 .odd{
     background-color: black;
