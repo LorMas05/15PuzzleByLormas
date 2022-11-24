@@ -1,0 +1,126 @@
+.background{
+    background-image: url(https://img.freepik.com/free-vector/blue-speed-comic-style-background_23-2148820924.jpg?w=2000);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.header{
+    position:absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 10vh;
+    top: 0px;
+    width: 100vw;
+    background-color: rgb(126 105 161 / 29%);
+}
+.footer{
+    position:absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 10vh;
+    bottom: 0px;
+    width: 100vw;
+    background-color: rgb(126 105 161 / 29%);
+
+}
+.titleInHeader{
+    color:white;
+
+}
+.content{
+    position: absolute;
+    height: 80vh;
+    width: 100%;
+    left: 0px;
+    top: 10vh;
+
+
+}
+.puzzleContainer{
+    position: relative;
+    top:20px;
+    height:350px;
+    width: 350px;
+    background-color: rgb(126 105 161 / 47%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+}
+.puzzleContent{
+    position: relative;
+    height: 320px;
+    width: 320px;
+    background-color: rgb(0 0 0 / 32%);
+    border:1px solid white;
+    border-radius: 20px;
+}
+.puzzleRow{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.piece{
+    width: 79px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    height: 79px;
+    border-radius: 20px;
+    border:1px solid white
+}
+.odd{
+    background-color: black;
+}
+.transparent{
+    background-color: transparent;
+    border:1px solid transparent;
+    color: transparent;
+}
+.time-container{
+    height: 50px;
+    width: 350px;
+    background-color: rgb(126 105 161 / 47%);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+
+}
+.flex{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inspect{
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.customButton{
+    border-radius: 10px;
+    background-color:rgb(228 225 233 / 81%) ;
+    border: 2px solid white;
+    font-weight: bold;
+}
+.customButton:hover{
+    background-color:rgba(104, 101, 109, 0.81) ;
+    color: white;
+}

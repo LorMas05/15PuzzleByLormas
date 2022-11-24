@@ -1,0 +1,71 @@
+<div class="background">
+  <div class="header">
+    <h1 class="titleInHeader">LORMAS 15</h1>
+      <div class="openOptionsContainer">
+
+      </div>
+  </div>
+
+  <div class="content">
+      <!--body goes here-->
+    <div class="flex">
+      <div class="puzzleContainer">
+        <div class="puzzleContent">
+          <div class="puzzleRow">
+            <div class="piece odd" id="0"  (click)="move(0) ;endTimer()"[ngClass]="{'transparent': PuzzlePiecesArray[0] === 16,'odd':PuzzlePiecesArray[0]%2!=0}">{{PuzzlePiecesArray[0]}}</div>
+            <div class="piece odd " id="1"  (click)="move(1); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[1] === 16,'odd':PuzzlePiecesArray[1]%2!=0}">{{PuzzlePiecesArray[1]}}</div>
+            <div class="piece odd" id="2"  (click)="move(2) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[2] === 16,'odd':PuzzlePiecesArray[2]%2!=0}">{{PuzzlePiecesArray[2]}}</div>
+            <div class="piece odd" id="3"  (click)="move(3) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[3] === 16,'odd':PuzzlePiecesArray[3]%2!=0}">{{PuzzlePiecesArray[3]}}</div> 
+          </div>
+          <div class="puzzleRow">
+            <div class="piece odd" id="4" (click)="move(4) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[4] === 16,'odd':PuzzlePiecesArray[4]%2!=0}">{{PuzzlePiecesArray[4]}}</div>
+            <div class="piece odd" id="5" (click)="move(5) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[5] === 16,'odd':PuzzlePiecesArray[5]%2!=0}">{{PuzzlePiecesArray[5]}}</div>
+            <div class="piece odd" id="6" (click)="move(6) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[6] === 16,'odd':PuzzlePiecesArray[6]%2!=0}">{{PuzzlePiecesArray[6]}}</div>
+            <div class="piece odd" id="7" (click)="move(7); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[7] === 16,'odd':PuzzlePiecesArray[7]%2!=0}">{{PuzzlePiecesArray[7]}}</div>
+            
+          </div>
+          <div class="puzzleRow">
+            <div class="piece odd" id="8"  (click)="move(8); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[8] === 16,'odd':PuzzlePiecesArray[8]%2!=0}">{{PuzzlePiecesArray[8]}}</div>
+            <div class="piece odd" id="9"  (click)="move(9) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[9] === 16,'odd':PuzzlePiecesArray[9]%2!=0}">{{PuzzlePiecesArray[9]}}</div>
+            <div class="piece odd" id="10" (click)="move(10) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[10] === 16,'odd':PuzzlePiecesArray[10]%2!=0}">{{PuzzlePiecesArray[10]}}</div>
+            <div class="piece odd" id="11"  (click)="move(11); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[11] === 16,'odd':PuzzlePiecesArray[11]%2!=0}">{{PuzzlePiecesArray[11]}}</div>
+            
+          </div>
+          <div class="puzzleRow">
+            <div class="piece odd" id="12" (click)="move(12); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[12] === 16,'odd':PuzzlePiecesArray[12]%2!=0}">{{PuzzlePiecesArray[12]}}</div>
+            <div class="piece odd" id="13" (click)="move(13); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[13] === 16,'odd':PuzzlePiecesArray[13]%2!=0}">{{PuzzlePiecesArray[13]}}</div>
+            <div class="piece odd" (click)="move(14) ;endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[14] === 16 ,'odd':PuzzlePiecesArray[14]%2!=0}" id="14">{{PuzzlePiecesArray[14]}}</div>
+            <div class="piece odd"  (click)="move(15); endTimer()" [ngClass]="{'transparent': PuzzlePiecesArray[15] === 16,'odd':PuzzlePiecesArray[15]%2!=0}" id="15">{{PuzzlePiecesArray[15]}}</div>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="flex" style="margin-top: 50px;">
+      <div class="time-container"  style="justify-content:space-between;">
+        <button class="customButton" style="margin-left:18px ;" (click)="shufflePieces()">Shuffle</button>
+        <div *ngIf="!inspectionTime" style="display: flex;">
+          🕐 {{timerSecond}}:{{timerMilliSecond}}
+        </div>
+        <button class="customButton" style="margin-right: 18px;">Leaderboard</button>
+      </div>  
+      </div>
+
+    <div class="flex" style="margin-top:50px">
+      <div *ngIf="inspectionTime"class="time-container inspect">
+        Time Starts in : {{inspectionTimer}} seconds
+      </div>
+    </div>
+    
+      <!--body goes here-->
+  </div>
+
+
+
+
+  <div class="footer">
+
+  </div>
+
+</div>
